@@ -1,8 +1,28 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+
+
+
 
 function BlockInfo({block}) {
-  
+  const blockNumber = block.number
+
+  //const [blockNumber, setBlockNumber] = useState(block.blockNumber);
+  const history = useHistory();
+  console.log(blockNumber)
+  const handleClick = () => {
+
+   history.push("/transaction")
+  //   {
+  //     pathname: "/transaction",
+  //     state: { prop: blockNumber }
+  // });
+  }
+  //to={{pathname: '/transaction', state: { blockNumber: blockNumber }}} 
     return (
+    <Link to={{pathname: '/transaction', state: { blockNumber: blockNumber }}} onClick={() => handleClick()}>
       <div className="block-info">
         <div className="block-info__nonce">{block.nonce}</div>
         <div className="block-info__hash">{block.hash}</div>
@@ -22,6 +42,7 @@ function BlockInfo({block}) {
         <div>Difficulty: {block.difficulty}</div>
         <div>Total Difficulty: {block.totalDifficulty}</div>
       </div>
+      </Link>
     );
   }
 

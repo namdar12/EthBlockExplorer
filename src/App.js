@@ -2,18 +2,22 @@ import { Alchemy, Network } from 'alchemy-sdk';
 import { useEffect, useState } from 'react';
 import BlockInfo from './components/BlockInfo';
 import SearchBar from './components/SearchBar';
-import {  Link, NavLink } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  NavLink,
+} from "react-router-dom";
 import React from 'react';
 import './App.css';
-import GasEstimator from './components/GasEstimator';
 import { createContext } from 'react';
+import BlockRender from './pages/home';
+
 
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
 // level code.
 const settings = {
-  apiKey: "4SMB-n5Z8rFCi7QqQI5b_1a6RC68tFrK", //process.env.REACT_APP_ALCHEMY_API_KEY,
+  apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
   network: Network.ETH_MAINNET,
 };
 
@@ -37,19 +41,7 @@ function App() {
     setSearchTerm(term);
     setIsSearching(true);
   }
-  
-  // let start = blockNumber-10
-  // let end = blockNumber
-  // const getBlockArray = async (start, end) => {
-  //   const blockPromises = Array.from({ length: end - start }, (_, i) => {
-  //     return alchemy.core.getBlock(i + start);
-  //   });
 
-  //   const blocks = await Promise.all(blockPromises);
-  //   setBlockArray(blocks);
-  // };
-
-  
 
   useEffect(() => {
     async function getBlockNumber() {
@@ -60,72 +52,40 @@ function App() {
       if (!isSearching) {
         setBlock(await alchemy.core.getBlock(blockNumber));
       } else {
+        setBlockNumber(parseInt(searchTerm))
         setBlock(await alchemy.core.getBlock(parseInt(searchTerm)));  
       }
     }
 
 
-
-    // async function getBlockInformation(){
-    //   // if(searchTerm !== ''){
-    //   //   console.log('Search here')
-    //   //   setBlock(await alchemy.core.getBlock(parseInt(searchTerm)));  
-    //   // }
-    //     setBlock(await alchemy.core.getBlock(blockNumber));
-    // }
-
     getBlockNumber();
     getBlockInformation();
-   //console.log(blocksArray)
 
 
-  }, [searchTerm, block,blockNumber,isSearching]);
 
-    //return (BlockInfo(block));
+  }, [searchTerm, block,blockNumber,isSearching,setBlockNumber]);
+
+
    return( 
    <div className="app">
-    <BlockInfo block = {block}/>
+    {/* <BlockInfo block = {block}/> */}
+    <BlockRender block={block}></BlockRender>
     <SearchBar onSearch={handleSearch} />
+    {/* <NavBar block={block}></NavBar> */}
       <div className='nav'>
       <NavLink to="/">HOME</NavLink>
       <NavLink to={{pathname: '/gasestimator',
                 state: { blockNumber: blockNumber }}
                 }>GAS</NavLink>
+      {/* <NavLink to='/chain' blockNumber={blockNumber}>CHAIN</NavLink> */}
      <NavLink to={{pathname: '/chain',
-     state: { blockNumber: blockNumber }}
+                  state: { blockNumber: blockNumber }}
                  }>CHAIN</NavLink>
       </div>
+      
   </div>);
 
 
-
-
-
-
-
-
-
-
-// <div className="App">Block Number: {blockNumber}
-//       <div>gasLimit: {block.gasLimit ? block.gasLimit.toString() : ''}</div>
-//       {block && (
-//     <div>
-//         <div>Nonce: {block.nonce}</div>
-//         <div>Hash: {block.hash}</div>
-//         <div>Number: {block.number}</div>
-//         <div>Parent Hash: {block.parentHash}</div>
-//         <div>SHA3 Uncles: {block.sha3Uncles}</div>
-//         <div>Logs Bloom: {block.logsBloom}</div>
-//         <div>Transactions Root: {block.transactions}</div>
-//         <div>State Root: {block.stateRoot}</div>
-//         <div>Receipts Root: {block.receiptsRoot}</div>
-//         <div>Miner: {block.miner}</div>
-//         <div>Difficulty: {block.difficulty}</div>
-//         <div>Total Difficulty: {block.totalDifficulty}</div>
-//     </div>
-// )}
-      
-//       </div>;
 }
 
 export default App;

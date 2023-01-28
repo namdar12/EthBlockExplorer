@@ -5,7 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #4A9FE8;
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -15,33 +18,53 @@ code {
 .nav {
   position: fixed;
     top: 0;
-    width: 10%;
+    width: 35%;
     left: 0;
     right: 0;
     margin: 0 auto;
+    padding-top: 20px;
+   margin-top: 30px;
     background-color: rgb(174, 212, 181);
     padding: 10px;
     display: flex;
     justify-content: center;
+    border-radius: 20px;
+    border-radius: 57px;
+background: linear-gradient(145deg, #fa6868, #d35757);
+box-shadow:  9px 9px 35px #773131,
+             -9px -9px 35px #ff9191;
+    
 }
 
 .nav a {
-  color: white;
   text-decoration: none;
-  padding: 0 10px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: darkblue;
+  font-size: 3em;
+
 }
 
 
 .block-info {
+  text-align: center;
   background-color: #82d8c4;
   border: 6px solid #ccc;
-  width: 650px;
+  width: 1000px;
   margin: 0 auto;
-  height: 450px;
-  padding-top:50px;
-  margin-top: 50px;
+  height: 650px;
+  padding-top:100px;
+  margin-top: 260px;
   padding: 20px;
   font-weight: bold;
+  font-size: x-large;
+  border-radius: 10px;
+  border-radius: 88px;
+background: linear-gradient(145deg, #5286b4, #457197);
+box-shadow:  20px 20px 14px #355674,
+             -20px -20px 14px #65a4dc;
+
 }
 
 .block-info__nonce {
@@ -71,3 +94,24 @@ code {
 }
 
 
+.Chain-Link-h1 {
+  text-align: center;
+  font-weight: bold;
+  font-family: cursive;
+  color: darkgreen;
+  font-size: 4em;
+
+}
+
+.gasestimator{
+  text-align: center;
+  font-weight: bold;
+  font-family: cursive;
+  color: rgb(60, 24, 66);
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 900px;
+  
+}
