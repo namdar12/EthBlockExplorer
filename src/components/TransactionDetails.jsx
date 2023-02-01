@@ -36,15 +36,13 @@ function TransactionDetail(hash){
       const blockNumber = transactionDetail.blockNumber;
 
     return(
-       <> <div>
-       <h1>TransactionDetail</h1>
-       <div>Nonc</div> 
-        <div>Hash: {transactionDetail.blockHash}</div>
+       <> <div className='Transaction-Detail'>
+       <h1>Transaction Details</h1>
+        <div>Block Hash: {transactionDetail.blockHash}</div>
+        <div>Contract Address: {transactionDetail.contractAddress ? transactionDetail.contractAddress : 'NULL'}</div>
        <div>Number: {transactionDetail.blockNumber}</div>
-       <div>Parent Hash: {transactionDetail.contractAddress}</div>
-       <div>SHA3 Uncles: {transactionDetail.from}</div>
-       <div>State Root: {transactionDetail.to}</div>
-       <div>Receipts Root: {transactionDetail.transactionhash}</div>
+       <div>FROM: {transactionDetail.from}</div>
+       <div>TO: {transactionDetail.to}</div>
        <div>Miner: {transactionDetail.transactionIndex}</div>
        </div>
          <div className='nav'>

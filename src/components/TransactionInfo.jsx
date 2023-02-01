@@ -43,18 +43,13 @@ function Transaction(){
   
  
     return (
-      <> <div>
-          <h1>TRANSACTION INFORMATION</h1>
-        <div>Nonce: {transaction.nonce}</div>
+      <> <div className='Transaction-Info'>
+        <h1>TRANSACTION INFORMATION</h1>
+        {/* <div>Nonce: {transaction.nonce}</div> */}
         <div>Hash: {transaction.hash}</div>
         <div>Number: {transaction.number}</div>
         <div>Parent Hash: {transaction.parentHash}</div>
-        <div>SHA3 Uncles: {transaction.sha3Uncles}</div>
-        <div>State Root: {transaction.stateRoot}</div>
-        <div>Receipts Root: {transaction.transactionsRoot}</div>
         <div>Miner: {transaction.miner}</div>
-        <div>Difficulty: {transaction.difficulty}</div>
-        <div>Total Difficulty: {transaction.totalDifficulty}</div>
         {transaction.transactions && transaction.transactions.map((tx, index) => {
      return  <Link to={{pathname:'/details', state:{hash: tx.hash}}} 
        onClick={() => handleClick()} key={index}>Transaction {index + 1}: {tx.hash}<br></br></Link>})}

@@ -92,8 +92,11 @@ color: rgb(13, 75, 7);
   font-weight: bold;
   font-family: cursive;
   color: darkgreen;
-  font-size: 4em;
-
+  font-size: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
 }
 
 .gasestimator{
@@ -107,4 +110,60 @@ color: rgb(13, 75, 7);
   justify-content: center;
   height: 900px;
   
+}
+
+.Transaction-Info{
+
+  text-align: center;
+  background-color: #82d8c4;
+  width: 1000px;
+  margin: 0 auto;
+  height: 100%;
+  padding-top:100px;
+  margin-top: 260px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: x-large;
+  border-radius: 10px;
+  /* border-radius: 88px;
+  background: linear-gradient(145deg, #5286b4, #457197);
+  box-shadow:  20px 20px 14px #355674,
+              -20px -20px 14px #65a4dc; */
+
+
+border-radius: 50px;
+background: #e0e0e0;
+box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+
+color: rgb(28, 8, 204);
+
+}
+
+.Transaction-Detail{
+  text-align: center;
+  background-color: #82d8c4;
+  width: 1000px;
+  margin: 0 auto;
+  height: 100%;
+  padding-top:100px;
+  margin-top: 260px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: x-large;
+  border-radius: 10px;
+  /* border-radius: 88px;
+  background: linear-gradient(145deg, #5286b4, #457197);
+  box-shadow:  20px 20px 14px #355674,
+              -20px -20px 14px #65a4dc; */
+
+
+border-radius: 50px;
+background: #e0e0e0;
+box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+
+color: rgb(28, 8, 204);
+
+
 }
